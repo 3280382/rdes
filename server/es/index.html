@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+<div id="status"></div>
+<button id="switch">开启</button>
+<button id="clean">清空</button>
+
+<ol id="msg"></ol>
+
+
+<script>
+    var Btn = function () {
+        this._switch = document.querySelector('#switch');
+        this._clean  = document.querySelector('#clean');
+        this._msg    = document.querySelector('#msg');
+        this._status = document.querySelector('#status');
+        this.es = null;
+
+        this.init();
+    };
+
+    Btn.prototype.init = function () {
+        var that = this;
+
+        var _msg = that._msg;
+        that._clean.addEventListener('click', function () {
+            _msg.innerHTML = '';
+        });
+
+        that._switch.addEventListener('click', function () {
+            if(this.innerText === '开启') {
+                that.on();
+            } else {
+                that.off();
+            }
+        });
+
+        that.on();
+    };
+
+    Btn.prototype.on = function () {
+        var that = this;
+
+        // 1. 声明EventSource
+        that.es = new EventSource('http://192.168.31.145:3000/msg');
+        // 2. 监听数据
+        that.es.onmessage = function (e) {
+            document.querySelector('#msg').innerHTML += '<li>'+ e.data +'</li>'
+        };
+
+        that._switch.innerText = '关掉';
+        that._status.classList.add('working');
+    };
+
+    Btn.prototype.off = function () {
+        this.es.close();
+
+        this._switch.innerText = '开启';
+        this._status.classList.remove('working');
+    };
+
+    new Btn();
+</script>
+</body>
+</html>
