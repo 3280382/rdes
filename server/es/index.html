@@ -47,7 +47,7 @@
         var that = this;
 
         // 1. 声明EventSource
-        that.es = new EventSource('http://192.168.31.145:3000/msg');
+        that.es = new EventSource('/msg');
         // 2. 监听数据
         that.es.onmessage = function (e) {
             document.querySelector('#msg').innerHTML += '<li>'+ e.data +'</li>'
