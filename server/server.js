@@ -1,25 +1,20 @@
 var fs = require('fs');
+var path = require('path');
+var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var socketio = require('socket.io')(http);
+var compression = require('compression');  
+
+var port = (process.env.VCAP_APP_PORT || 3000);
+var host = (process.env.VCAP_APP_HOST || 'localhost');
+
+app.use(compression()); 
+app.use(express.static(path.join(__dirname, 'www')));       
 
 app.get('/', function(req, res){
 	res.send('<h1>Welcome Realtime Server：</h1>');
 });
-
-app.get('/es/:fileName', function(req, res){
-	fs.readFile('./es/'+fileName, function (err, content) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end(content, 'utf-8');
-        });
-}); 
-
-app.get('/ws/index.html', function(req, res){
-	fs.readFile('./ws/index.html', function (err, content) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end(content, 'utf-8');
-        });
-});        
 
 app.get('/msg', function(req, res){
 	    		console.log(req.headers['user-agent']);
@@ -42,7 +37,7 @@ var onlineUsers = {};
 //当前在线人数
 var onlineCount = 0;
 
-io.on('connection', function(socket){
+socketio.on('connection', function(socket){
 	console.log('a user connected');
 	
 	//监听新用户加入
@@ -58,7 +53,7 @@ io.on('connection', function(socket){
 		}
 		
 		//向所有客户端广播用户加入
-		io.emit('login', {onlineUsers:onlineUsers, onlineCount:onlineCount, user:obj});
+		socketio.emit('login', {onlineUsers:onlineUsers, onlineCount:onlineCount, user:obj});
 		console.log(obj.username+'加入了聊天室');
 	});
 	
@@ -75,7 +70,7 @@ io.on('connection', function(socket){
 			onlineCount--;
 			
 			//向所有客户端广播用户退出
-			io.emit('logout', {onlineUsers:onlineUsers, onlineCount:onlineCount, user:obj});
+			socketio.emit('logout', {onlineUsers:onlineUsers, onlineCount:onlineCount, user:obj});
 			console.log(obj.username+'退出了聊天室');
 		}
 	});
@@ -83,12 +78,13 @@ io.on('connection', function(socket){
 	//监听用户发布聊天内容
 	socket.on('message', function(obj){
 		//向所有客户端广播发布的消息
-		io.emit('message', obj);
+		socketio.emit('message', obj);
 		console.log(obj.username+'说：'+obj.content);
 	});
   
 });
 
-http.listen(3001, function(){
-	console.log('listening on *:3001');
+http.listen(port, function(){
+	console.log('listening on *:'+port);
+	console.log('__dirname:'+__dirname);
 });
