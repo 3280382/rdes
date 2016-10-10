@@ -1,87 +1,158 @@
 var fs = require('fs');
 var path = require('path');
+var url = require("url");
 var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
 var socketio = require('socket.io')(http);
 var compression = require('compression');  
+var crypto = require("crypto");
 
 var port = (process.env.VCAP_APP_PORT || 3000);
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 
-app.use(compression()); 
+//app.use(compression()); 
 app.use(express.static(path.join(__dirname, 'www')));       
 
 app.get('/', function(req, res){
-	res.send('<h1>Welcome Realtime Serverï¼š</h1>');
+	res.send('<h1>Welcome Realtime Server£º</h1>');
 });
+
+var wsConsole;
 
 app.get('/msg', function(req, res){
 	    		console.log(req.headers['user-agent']);
-        // 1. è®¾å®šå¤´ä¿¡æ¯
+        // 1. Éè¶¨Í·ĞÅÏ¢
         res.writeHead(200, {
             "Content-Type": "text/event-stream",
             "Cache-Control": "no-cache",
             "Connection": "keep-alive"
         });
-
-        // 2. è¾“å‡ºå†…å®¹ï¼Œå¿…é¡» "data:" å¼€å¤´ "\n\n" ç»“å°¾ï¼ˆä»£è¡¨ç»“æŸï¼‰
-        setInterval(function () {
-            res.write("data: " + Date.now() + "\n\n");
-            console.log(req.headers['user-agent']);
-        }, 1000);
+        
+        if(req.query.console)
+        {
+        	wsConsole = res;
+	       	//wait console log
+	      }
+	    	else
+	    	{
+	    		 // 2. Êä³öÄÚÈİ£¬±ØĞë "data:" ¿ªÍ· "\n\n" ½áÎ²£¨´ú±í½áÊø£©
+	        setInterval(function () {
+	            res.write("data: " + Date.now() + "\n\n");
+	            console.log(req.headers['user-agent']);
+	        }, 1000);
+	    	}
 });
 
-//åœ¨çº¿ç”¨æˆ·
+//ÔÚÏßÓÃ»§
 var onlineUsers = {};
-//å½“å‰åœ¨çº¿äººæ•°
+//µ±Ç°ÔÚÏßÈËÊı
 var onlineCount = 0;
 
 socketio.on('connection', function(socket){
 	console.log('a user connected');
 	
-	//ç›‘å¬æ–°ç”¨æˆ·åŠ å…¥
+	//¼àÌıĞÂÓÃ»§¼ÓÈë
 	socket.on('login', function(obj){
-		//å°†æ–°åŠ å…¥ç”¨æˆ·çš„å”¯ä¸€æ ‡è¯†å½“ä½œsocketçš„åç§°ï¼Œåé¢é€€å‡ºçš„æ—¶å€™ä¼šç”¨åˆ°
+		//½«ĞÂ¼ÓÈëÓÃ»§µÄÎ¨Ò»±êÊ¶µ±×÷socketµÄÃû³Æ£¬ºóÃæÍË³öµÄÊ±ºò»áÓÃµ½
 		socket.name = obj.userid;
 		
-		//æ£€æŸ¥åœ¨çº¿åˆ—è¡¨ï¼Œå¦‚æœä¸åœ¨é‡Œé¢å°±åŠ å…¥
+		//¼ì²éÔÚÏßÁĞ±í£¬Èç¹û²»ÔÚÀïÃæ¾Í¼ÓÈë
 		if(!onlineUsers.hasOwnProperty(obj.userid)) {
 			onlineUsers[obj.userid] = obj.username;
-			//åœ¨çº¿äººæ•°+1
+			//ÔÚÏßÈËÊı+1
 			onlineCount++;
 		}
 		
-		//å‘æ‰€æœ‰å®¢æˆ·ç«¯å¹¿æ’­ç”¨æˆ·åŠ å…¥
+		//ÏòËùÓĞ¿Í»§¶Ë¹ã²¥ÓÃ»§¼ÓÈë
 		socketio.emit('login', {onlineUsers:onlineUsers, onlineCount:onlineCount, user:obj});
-		console.log(obj.username+'åŠ å…¥äº†èŠå¤©å®¤');
+		console.log(obj.username+'¼ÓÈëÁËÁÄÌìÊÒ');
 	});
 	
-	//ç›‘å¬ç”¨æˆ·é€€å‡º
+	//¼àÌıÓÃ»§ÍË³ö
 	socket.on('disconnect', function(){
-		//å°†é€€å‡ºçš„ç”¨æˆ·ä»åœ¨çº¿åˆ—è¡¨ä¸­åˆ é™¤
+		//½«ÍË³öµÄÓÃ»§´ÓÔÚÏßÁĞ±íÖĞÉ¾³ı
 		if(onlineUsers.hasOwnProperty(socket.name)) {
-			//é€€å‡ºç”¨æˆ·çš„ä¿¡æ¯
+			//ÍË³öÓÃ»§µÄĞÅÏ¢
 			var obj = {userid:socket.name, username:onlineUsers[socket.name]};
 			
-			//åˆ é™¤
+			//É¾³ı
 			delete onlineUsers[socket.name];
-			//åœ¨çº¿äººæ•°-1
+			//ÔÚÏßÈËÊı-1
 			onlineCount--;
 			
-			//å‘æ‰€æœ‰å®¢æˆ·ç«¯å¹¿æ’­ç”¨æˆ·é€€å‡º
+			//ÏòËùÓĞ¿Í»§¶Ë¹ã²¥ÓÃ»§ÍË³ö
 			socketio.emit('logout', {onlineUsers:onlineUsers, onlineCount:onlineCount, user:obj});
-			console.log(obj.username+'é€€å‡ºäº†èŠå¤©å®¤');
+			console.log(obj.username+'ÍË³öÁËÁÄÌìÊÒ');
 		}
 	});
 	
-	//ç›‘å¬ç”¨æˆ·å‘å¸ƒèŠå¤©å†…å®¹
+	//¼àÌıÓÃ»§·¢²¼ÁÄÌìÄÚÈİ
 	socket.on('message', function(obj){
-		//å‘æ‰€æœ‰å®¢æˆ·ç«¯å¹¿æ’­å‘å¸ƒçš„æ¶ˆæ¯
+		//ÏòËùÓĞ¿Í»§¶Ë¹ã²¥·¢²¼µÄÏûÏ¢
 		socketio.emit('message', obj);
-		console.log(obj.username+'è¯´ï¼š'+obj.content);
+		console.log(obj.username+'Ëµ£º'+obj.content);
 	});
   
+});
+
+
+function sha1(str){
+  var md5sum = crypto.createHash("sha1");
+  md5sum.update(str);
+  str = md5sum.digest("hex");
+  return str;
+}
+
+function wsConsoleLog(str)
+{
+	console.log(str);
+	if(wsConsole)	wsConsole.write("data: "+Date.now() + str + "\n\n");
+}
+
+function logReq(req)
+{
+  wsConsoleLog("req.originalUrl:" + req.originalUrl);
+  wsConsoleLog("req.query:"+JSON.stringify(req.query));
+  var ips = req.ips ? req.ips.join(",") : req.ip;
+  wsConsoleLog("req.ips:"+ips);
+  wsConsoleLog("req.body:"+req.body);
+}
+
+
+function validateToken(req,res){  
+	var query = req.query;
+  var signature = query.signature;
+  var echostr = query.echostr;
+  var timestamp = query['timestamp'];
+  var nonce = query.nonce;
+  var oriArray = new Array();
+  oriArray[0] = nonce;
+  oriArray[1] = timestamp;
+  oriArray[2] = "13751880344";//ÕâÀïÊÇÄãÔÚÎ¢ĞÅ¿ª·¢ÕßÖĞĞÄÒ³ÃæÀïÌîµÄtoken£¬¶ø²»ÊÇ****
+  oriArray.sort();
+  var original = oriArray.join('');
+  console.log("Original str : " + original);
+  console.log("Signature : " + signature );
+  var scyptoString = sha1(original);
+  console.log("scyptoString : " + scyptoString );
+  if(signature == scyptoString){
+    res.end(echostr);
+    console.log("Confirm and send echo back");
+  }else {
+    res.end("false");
+    console.log("Failed!");
+  }
+}
+
+app.get('/weixin/vt', function(req, res){
+	logReq(req);
+	validateToken(req,res);
+});
+
+app.post('/weixin/vt', function(req, res){
+	logReq(req);
+	res.end("ok");
 });
 
 http.listen(port, function(){
