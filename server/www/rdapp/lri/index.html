@@ -1,0 +1,80 @@
+<div data-role="page">
+	<div role="main" class="ui-content">
+			<ul data-role="listview"   >
+			<li>
+			<a href="./plugin_camera.html" >
+			<img src="../images/plugins/camera_128x128-32.png"></img>
+			<h2>摄像头|camera</h2>
+				<p>camera插件的功能，演示如何获取相机拍摄的图片</p>
+			</a>			
+			</li>	
+			<li>
+			<a onclick="getPkgFile('http://m.jd.com');" >
+			<img src="../images/plugins/thinking_space_128x128-32.png"></img>
+			<h2>media</h2>
+				<p>功能展示</p>
+			</a></li>	
+			<li>
+			<a href="#" onclick="showDebug();" >
+			<img src="../images/plugins/task_manager_128x128-32.png"></img>
+			<h2>控制台|console</h2>
+			<p>console插件的功能</p>
+			<span class="ui-li-count">12</span>
+			</a></li>
+			<li>
+				<a data-ajax="false" href="./muiplugins/index.html">
+				<img src="../images/plugins/flickr_128x128-32.png"></img>
+				<h2>muiplugins</h2>
+				<p>功能展示</p>
+				</a></li>
+			<li>
+			<a href="../home/index.html">
+				<img src="../images/plugins/dropbox_128x128-32.png"></img>
+				<h2>file</h2>
+				<p>功能展示</p>
+				</a></li>
+			<li>
+			<a onclick="getPkgFile('../home/index.html');" >
+			<img src="../images/plugins/linkedin_128x128-32.png"></img>
+			<h2>file transfer</h2>
+				<p>功能展示</p>
+			</a></li>
+			<li>
+			<a onclick="getPkgFile('http://m.jd.com');" >
+			<img src="../images/plugins/thinking_space_128x128-32.png"></img>
+			<h2>geolocation</h2>
+				<p>功能展示</p>
+			</a></li>		
+				
+		</ul>
+			<script>
+    function showDebug()
+    {
+    		alert("android 使用 adb logcat查看日志输出");
+    		console.log("log debug_msg");
+			console.error("error debug_msg");
+			console.warn("warn debug_msg");
+			console.info("info debug_msg");
+			console.debug("debug debug_msg");
+    }
+    function getPkgFile(fileUrl)
+    {
+		    $.ajax({
+				url:  fileUrl,
+				data: {},
+				type: "GET",
+				dataType: "text",
+				complete: function(res,stat){
+					if ( stat == "success" )
+					{
+						alert(res.responseText);
+					}
+				},
+				error:function(res,stat){
+					alert("获取失败");
+				}
+				});		
+    }
+	</script>
+	</div><!-- /content -->
+</div><!-- /page -->

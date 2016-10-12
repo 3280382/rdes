@@ -1,0 +1,168 @@
+ <img src="shapes.png" usemap="#shapes"
+      alt="Four shapes are available: a red hollow box, a green circle, a blue triangle, and a yellow four-pointed star.">
+ <map name="shapes">
+  <area shape=rect coords="50,50,100,100"> <!-- the hole in the red box -->
+  <area shape=rect coords="25,25,125,125" href="red.html" alt="Red box.">
+  <area shape=circle coords="200,75,50" href="green.html" alt="Green circle.">
+  <area shape=poly coords="325,25,262,125,388,125" href="blue.html" alt="Blue triangle.">
+  <area shape=poly coords="450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60"
+        href="yellow.html" alt="Yellow star.">
+ </map>
+
+url = canvas . toDataURL( [ type, ... ] )
+
+
+
+js判断手机和pc端选择不同执行事件的方法
+
+这篇文章主要介绍了js判断手机和pc端选择不同执行事件的方法,可实现判断手机端还是PC端再选择对应的执行事件的功能,是非常实用的技巧,需要的朋友可以参考下
+
+本文实例讲述了js判断手机和pc端选择不同执行事件的方法。分享给大家供大家参考。具体如下：
+
+判断是否为手机：
+
+function isMobile(){
+ var sUserAgent= navigator.userAgent.toLowerCase(),
+ bIsIpad= sUserAgent.match(/ipad/i) == "ipad",
+ bIsIphoneOs= sUserAgent.match(/iphone os/i) == "iphone os",
+ bIsMidp= sUserAgent.match(/midp/i) == "midp",
+ bIsUc7= sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4",
+ bIsUc= sUserAgent.match(/ucweb/i) == "ucweb",
+ bIsAndroid= sUserAgent.match(/android/i) == "android",
+ bIsCE= sUserAgent.match(/windows ce/i) == "windows ce",
+ bIsWM= sUserAgent.match(/windows mobile/i) == "windows mobile",
+ bIsWebview = sUserAgent.match(/webview/i) == "webview";
+ return (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM);
+}
+
+判断使用那种事件：
+
+var touchStart,touchMove,touchEnd;
+touchStart = isMobile() ? 'touchstart' : 'mousedown';
+touchMove = isMobile() ? 'touchmove' : 'mousemove';
+touchEnd = isMobile() ? 'touchend' : 'mouseup';
+
+三种事件的相应处理：
+
+touchstart:function(e){
+ var e=e || window.event; //要判断使用哪种event
+ stopDefault(e);     //不同的浏览器，阻止浏览器默认事件方法不同
+
+ if(isMobile()){     //如果是手机
+  var touch=e.touches[0];
+  this.y1=touch.pageY
+ }else{
+  this.y1=e.pageY;   //如果不是手机
+ }
+ this.y2=0;
+ },
+ touchmove:function(e){
+ var e=e || window.event;
+ stopDefault(e);
+ if(isMobile()){
+  var touch=e.touches[0];
+  this.y2=touch.pageY;
+ }else{
+  this.y2=e.pageY;
+ }
+ },
+
+ touchend:function(e){
+ var e=e || window.event;
+ stopDefault(e);
+ if(this.y2==0){
+  return;
+ }
+ var diffY=this.y2-this.y1;
+ if(diffY>50){
+  this.doNext();
+ }else if(diffY<-50){
+  this.doPrev();
+ }
+ this.y1=0,
+ this.y2=0;
+},
+
+阻止浏览器默认事件方法：
+
+function stopDefault(e){
+  var e=e || window.event;
+ if(e.preventDefault){
+ e.preventDefault();
+ }else{
+ e.returnValue=false;
+ }
+}
+
+希望本文所述对大家的javascript程序设计有所帮助。
+
+
+touches：表示当前跟踪的触摸操作的touch对象的数组。
+
+　　targetTouches：特定于事件目标的Touch对象的数组。
+
+　　changeTouches：表示自上次触摸以来发生了什么改变的Touch对象的数组。
+
+
+　　每个Touch对象包含的属性如下。
+
+
+　　clientX：触摸目标在视口中的x坐标。
+
+　　clientY：触摸目标在视口中的y坐标。
+
+　　identifier：标识触摸的唯一ID。
+
+　　pageX：触摸目标在页面中的x坐标。
+
+　　pageY：触摸目标在页面中的y坐标。
+
+　　screenX：触摸目标在屏幕中的x坐标。
+
+　　screenY：触摸目标在屏幕中的y坐标。
+
+　　target：触目的DOM节点目标。
+
+
+　　上面的属性光这么看，果然非常繁琐，每个属性说的都是那么的细致，只有真刀实枪的来点小例子才能更加明白其中的奥妙。所以小例子如下。
+
+
+[javascript] view plain copy
+在CODE上查看代码片派生到我的代码片
+
+    function load (){  
+       
+        document.addEventListener('touchstart',touch, false);  
+        document.addEventListener('touchmove',touch, false);  
+        document.addEventListener('touchend',touch, false);  
+           
+        function touch (event){  
+            var event = event || window.event;  
+               
+            var oInp = document.getElementById("inp");  
+       
+            switch(event.type){  
+                case "touchstart":  
+                    oInp.innerHTML = "Touch started (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";  
+                    break;  
+                case "touchend":  
+                    oInp.innerHTML = "<br>Touch end (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";  
+                    break;  
+                case "touchmove":  
+                    event.preventDefault();  
+                    oInp.innerHTML = "<br>Touch moved (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";  
+                    break;  
+            }  
+               
+        }  
+    }  
+    window.addEventListener('load',load, false);  
+
+
+ if ('ontouchstart' in window || 'ontouchstart' in document) {
+            //iOS & android
+            supportsTouch = true;
+ } else if(window.navigator.msPointerEnabled) {
+            //Win8
+            supportsTouch = true;
+ }

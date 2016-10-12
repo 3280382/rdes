@@ -1,3 +1,6 @@
+update：
+npm install npm@latest -g
+
 /*
 Token:13751880344
 timestamp:1234567890
@@ -9,20 +12,20 @@ signature&scyptoString:b80407946e297df9518af5bcac7573d6268d53d8
 
 
 
-���Ժ���Ϣ
+测试号信息
 appID
 wxf27db1fa5c4e9a92
 appsecret
 54016e2087897237a5adacd644a8b92a
-�ӿ�������Ϣ�޸�
-����д�ӿ�������Ϣ������Ϣ��Ҫ�����Լ��ķ�������Դ����д��URL��Ҫ��ȷ��Ӧ΢�ŷ��͵�Token��֤�����Ķ���Ϣ�ӿ�ʹ��ָ�ϡ�
+接口配置信息修改
+请填写接口配置信息，此信息需要你有自己的服务器资源，填写的URL需要正确响应微信发送的Token验证，请阅读消息接口使用指南。
 URL
 http://rdes.oschina.mopaasapp.com/weixin/vt
 Token
 13751880344
-JS�ӿڰ�ȫ�����޸�
-����JS�ӿڰ�ȫ���ͨ����ע�ò��Ժţ������߼����ڸ������µ���΢�ſ��ŵ�JS�ӿڣ����Ķ�΢��JSSDK�����ĵ���
-����
+JS接口安全域名修改
+设置JS接口安全域后，通过关注该测试号，开发者即可在该域名下调用微信开放的JS接口，请阅读微信JSSDK开发文档。
+域名
 rdes.oschina.mopaasapp.com
 
 https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxf27db1fa5c4e9a92&secret=54016e2087897237a5adacd644a8b92a

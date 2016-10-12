@@ -1,0 +1,1034 @@
+卷 LENOVO 的文件夹 PATH 列表
+卷序列号为 00000075 9A49:9F94
+D:.
+│  .gitignore
+│  .jshintignore
+│  .jshintrc
+│  .travis.yml
+│  all.txt
+│  Gruntfile.js
+│  package.json
+│  README.md
+│  
+├─assets
+│  │  icons-36-black.png
+│  │  icons-36-white.png
+│  │  icons.default.css
+│  │  loading.default.css
+│  │  reset.css
+│  │  transitions.css
+│  │  ui-loading.png
+│  │  
+│  └─widget
+│      ├─add2desktop
+│      │      add2desktop.css
+│      │      ui-add2desktop-iOS7.png
+│      │      ui-add2desktop-new.png
+│      │      ui-add2desktop-old.png
+│      │      
+│      ├─button
+│      │      button.css
+│      │      button.default.css
+│      │      
+│      ├─calendar
+│      │      calendar-header.png
+│      │      calendar.css
+│      │      calendar.default.css
+│      │      calendar.iOS7.css
+│      │      cancel.png
+│      │      done.png
+│      │      
+│      ├─dialog
+│      │      dialog.css
+│      │      dialog.default.css
+│      │      dialog.iOS7.css
+│      │      
+│      ├─dropmenu
+│      │      dropmenu.css
+│      │      dropmenu.default.css
+│      │      
+│      ├─gotop
+│      │      gotop.css
+│      │      ui-gotop-icon.png
+│      │      
+│      ├─historylist
+│      │      historylist.css
+│      │      historylist.default.css
+│      │      historylist_item_icon.png
+│      │      icon.png
+│      │      suglist_item_icon.png
+│      │      
+│      ├─navigator
+│      │      navigator.css
+│      │      navigator.default.css
+│      │      
+│      ├─panel
+│      │      panel.css
+│      │      panel.default.css
+│      │      
+│      ├─popover
+│      │      popover.css
+│      │      popover.default.css
+│      │      
+│      ├─progressbar
+│      │      progressbar.css
+│      │      progressbar.default.css
+│      │      progressbar.iOS7.css
+│      │      
+│      ├─refresh
+│      │      r-flip.png
+│      │      refresh.default.css
+│      │      refresh.iOS5.default.css
+│      │      refresh.iscroll.default.css
+│      │      
+│      ├─slider
+│      │      slider.css
+│      │      slider.default.css
+│      │      ui-slider-arrow.png
+│      │      ui-slider-imgbg.png
+│      │      
+│      ├─suggestion
+│      │      del.png
+│      │      suggestion.css
+│      │      suggestion.default.css
+│      │      suggestion.iscroll.css
+│      │      suggestion.quickdelete.css
+│      │      
+│      ├─tabs
+│      │      tabs.css
+│      │      tabs.default.css
+│      │      
+│      ├─toolbar
+│      │      toolbar.blue.css
+│      │      toolbar.css
+│      │      toolbar.default.css
+│      │      
+│      └─widget
+│              bg.png
+│              i-1.0.0.png
+│              logo.png
+│              widget.css
+│              widget1.css
+│              
+├─dist
+│  │  gmu.css
+│  │  gmu.js
+│  │  gmu.min.js
+│  │  reset.css
+│  │  zepto.js
+│  │  zepto.min.js
+│  │  
+│  └─images
+│          calendar-header.png
+│          cancel.png
+│          done.png
+│          icon.png
+│          icons-36-black.png
+│          icons-36-white.png
+│          r-flip.png
+│          ui-add2desktop-iOS7.png
+│          ui-add2desktop-new.png
+│          ui-add2desktop-old.png
+│          ui-gotop-icon.png
+│          ui-loading.png
+│          ui-slider-arrow.png
+│          ui-slider-imgbg.png
+│          
+├─examples
+│  │  index.html
+│  │  
+│  ├─assets
+│  │  │  app.js
+│  │  │  demo.css
+│  │  │  demos.js
+│  │  │  dialog_demo.css
+│  │  │  example.js
+│  │  │  gmu_a2d.png
+│  │  │  icon.png
+│  │  │  ipt.png
+│  │  │  iscroll.js
+│  │  │  mobileevent2pc.js
+│  │  │  panel_demo.css
+│  │  │  suggestion_demo.css
+│  │  │  widgets.js
+│  │  │  
+│  │  ├─img
+│  │  │      adddesktop.png
+│  │  │      back.png
+│  │  │      barchart.png
+│  │  │      button.png
+│  │  │      dialog.png
+│  │  │      dropmenu.png
+│  │  │      gotop.png
+│  │  │      imglazyload.png
+│  │  │      linechart.png
+│  │  │      navigator.png
+│  │  │      new.png
+│  │  │      panel.png
+│  │  │      piechart.png
+│  │  │      refresh.png
+│  │  │      slider.png
+│  │  │      suggestion.png
+│  │  │      tabs.png
+│  │  │      toolbar.png
+│  │  │      
+│  │  ├─refresh
+│  │  │      album.png
+│  │  │      doc.png
+│  │  │      p-icon.png
+│  │  │      p-load.png
+│  │  │      pdf.png
+│  │  │      ppt.png
+│  │  │      txt.png
+│  │  │      ufo.png
+│  │  │      xls.png
+│  │  │      
+│  │  └─slider
+│  │          image1.png
+│  │          image2.png
+│  │          image3.png
+│  │          image4.png
+│  │          pic1.jpg
+│  │          pic2.jpg
+│  │          pic3.jpg
+│  │          pic4.jpg
+│  │          pic5.jpg
+│  │          pic6.jpg
+│  │          pic7.jpg
+│  │          pic8.jpg
+│  │          pic9.jpg
+│  │          slider.png
+│  │          
+│  ├─data
+│  │  │  refresh.php
+│  │  │  refresh_test.php
+│  │  │  suggestion.php
+│  │  │  
+│  │  ├─appframe
+│  │  │      data.html
+│  │  │      
+│  │  └─tabs
+│  │          baike1.json
+│  │          baike2.json
+│  │          proxy.php
+│  │          sample.html
+│  │          sample.json
+│  │          tabs.html
+│  │          
+│  ├─extend
+│  │  └─imglazyload
+│  │      │  imglazyload.html
+│  │      │  imglazyload_addimg.html
+│  │      │  imglazyload_error.html
+│  │      │  imglazyload_iscroll.html
+│  │      │  
+│  │      └─images
+│  │              1.jpg
+│  │              10.jpg
+│  │              11.jpg
+│  │              12.jpg
+│  │              13.jpg
+│  │              14.jpg
+│  │              15.jpg
+│  │              16.jpg
+│  │              17.jpg
+│  │              2.jpg
+│  │              3.jpg
+│  │              4.jpg
+│  │              5.jpg
+│  │              6.jpg
+│  │              7.jpg
+│  │              8.jpg
+│  │              9.jpg
+│  │              
+│  └─widget
+│      ├─add2desktop
+│      │      add2desktop.html
+│      │      add2desktop_icon.html
+│      │      
+│      ├─button
+│      │      button.html
+│      │      button_icon.html
+│      │      button_iconpos.html
+│      │      button_input.html
+│      │      
+│      ├─calendar
+│      │      calendar.html
+│      │      calendar_iOS7.html
+│      │      calendar_monthyearchangeable.html
+│      │      calendar_picker.html
+│      │      calendar_range.html
+│      │      calendar_select.html
+│      │      
+│      ├─dialog
+│      │      dialog.html
+│      │      dialog_iOS7.html
+│      │      dialog_position.html
+│      │      
+│      ├─dropmenu
+│      │      dropmenu.html
+│      │      dropmenu_arrow.html
+│      │      dropmenu_collision.html
+│      │      dropmenu_horizontal.html
+│      │      dropmenu_placement.html
+│      │      
+│      ├─gotop
+│      │      gotop.html
+│      │      gotop_iscroll.html
+│      │      
+│      ├─historylist
+│      │      historylist.html
+│      │      
+│      ├─navigator
+│      │      navigator.html
+│      │      navigator_evenness.html
+│      │      navigator_fix.html
+│      │      navigator_scrollable.html
+│      │      navigator_scrolltonext.html
+│      │      
+│      ├─panel
+│      │      panel.html
+│      │      panel_hide.html
+│      │      panel_iscroll.html
+│      │      panel_position.html
+│      │      
+│      ├─popover
+│      │      popover.html
+│      │      popover_arrow.html
+│      │      popover_collision.html
+│      │      popover_placement.html
+│      │      popover_spare.html
+│      │      
+│      ├─progressbar
+│      │      progressbar.html
+│      │      progressbar_iOS7.html
+│      │      progressbar_vertical.html
+│      │      
+│      ├─refresh
+│      │      refresh.html
+│      │      refresh_endhide.html
+│      │      refresh_iOS5.html
+│      │      refresh_iOS5_endstatus.html
+│      │      refresh_iscroll.html
+│      │      refresh_iscroll_custom.html
+│      │      refresh_lite.html
+│      │      refresh_lite_custom.html
+│      │      
+│      ├─slider
+│      │      slider.html
+│      │      slider_dynamic.html
+│      │      slider_loop.html
+│      │      slider_multiview.html
+│      │      
+│      ├─suggestion
+│      │      suggestion.html
+│      │      suggestion_close.html
+│      │      suggestion_custom.html
+│      │      suggestion_iscroll.html
+│      │      suggestion_posAdapt.html
+│      │      suggestion_render.html
+│      │      suggestion_share.html
+│      │      suggestion_submit.html
+│      │      
+│      ├─tabs
+│      │      tabs.html
+│      │      tabs_ajax.html
+│      │      tabs_history.html
+│      │      tabs_json.html
+│      │      tabs_nocache.html
+│      │      tabs_render.html
+│      │      tabs_tabs.html
+│      │      
+│      └─toolbar
+│              toolbar.html
+│              toolbar_demo.css
+│              toolbar_fixed.html
+│              toolbar_fixed_top.html
+│              
+├─src
+│  ├─core
+│  │      event.js
+│  │      gmu.js
+│  │      widget.js
+│  │      
+│  ├─extend
+│  │      detect.js
+│  │      event.ortchange.js
+│  │      event.scrollStop.js
+│  │      fix.js
+│  │      highlight.js
+│  │      imglazyload.js
+│  │      iscroll.js
+│  │      matchMedia.js
+│  │      offset.js
+│  │      parseTpl.js
+│  │      position.js
+│  │      support.js
+│  │      throttle.js
+│  │      touch.js
+│  │      
+│  ├─widget
+│  │  ├─add2desktop
+│  │  │      add2desktop.js
+│  │  │      
+│  │  ├─button
+│  │  │      $input.js
+│  │  │      button.js
+│  │  │      
+│  │  ├─calendar
+│  │  │      $picker.js
+│  │  │      calendar.js
+│  │  │      
+│  │  ├─dialog
+│  │  │      $position.js
+│  │  │      dialog.js
+│  │  │      
+│  │  ├─dropmenu
+│  │  │      dropmenu.js
+│  │  │      horizontal.js
+│  │  │      placement.js
+│  │  │      
+│  │  ├─gotop
+│  │  │      $iscroll.js
+│  │  │      gotop.js
+│  │  │      
+│  │  ├─historylist
+│  │  │      historylist.js
+│  │  │      
+│  │  ├─navigator
+│  │  │      $scrollable.js
+│  │  │      evenness.js
+│  │  │      navigator.js
+│  │  │      scrolltonext.js
+│  │  │      
+│  │  ├─panel
+│  │  │      panel.js
+│  │  │      
+│  │  ├─popover
+│  │  │      arrow.js
+│  │  │      collision.js
+│  │  │      dismissible.js
+│  │  │      placement.js
+│  │  │      popover.js
+│  │  │      README.md
+│  │  │      
+│  │  ├─progressbar
+│  │  │      progressbar.js
+│  │  │      
+│  │  ├─refresh
+│  │  │      $iOS5.js
+│  │  │      $iscroll.js
+│  │  │      $lite.js
+│  │  │      refresh.js
+│  │  │      
+│  │  ├─slider
+│  │  │      $autoplay.js
+│  │  │      $dynamic.js
+│  │  │      $lazyloadimg.js
+│  │  │      $multiview.js
+│  │  │      $touch.js
+│  │  │      arrow.js
+│  │  │      dots.js
+│  │  │      imgzoom.js
+│  │  │      slider.js
+│  │  │      
+│  │  ├─suggestion
+│  │  │      $iscroll.js
+│  │  │      $posadapt.js
+│  │  │      $quickdelete.js
+│  │  │      compatdata.js
+│  │  │      renderlist.js
+│  │  │      sendrequest.js
+│  │  │      suggestion.js
+│  │  │      
+│  │  ├─tabs
+│  │  │      $ajax.js
+│  │  │      $swipe.js
+│  │  │      tabs.js
+│  │  │      
+│  │  └─toolbar
+│  │          $position.js
+│  │          toolbar.js
+│  │          
+│  ├─zepto
+│  └─zeptodoc
+│          ajax.js
+│          core.js
+│          effect.js
+│          event.js
+│          form.js
+│          touch.js
+│          
+├─standard
+│      GMU develop specification.md
+│      GMU test standard (Beta).md
+│      GMU test standard reference.xlsx
+│      
+├─tasks
+│  │  concat.js
+│  │  demo.js
+│  │  doc.js
+│  │  fet.js
+│  │  fis.js
+│  │  smart_cov.js
+│  │  testDownload.js
+│  │  
+│  ├─download
+│  │      bridge.js
+│  │      
+│  └─lib
+│      │  bridge.js
+│      │  cov_render.js
+│      │  parse.js
+│      │  phantom.js
+│      │  sprintf.js
+│      │  
+│      └─doc
+│          │  index.php
+│          │  
+│          ├─lib
+│          │  │  phpqrcode.php
+│          │  │  
+│          │  ├─JsDoc
+│          │  │  │  Cache.php
+│          │  │  │  Comment.php
+│          │  │  │  Data.php
+│          │  │  │  Docwiki.php
+│          │  │  │  Event.php
+│          │  │  │  File.php
+│          │  │  │  JsDoc.php
+│          │  │  │  sample.txt
+│          │  │  │  Template.php
+│          │  │  │  Text2HTML.php
+│          │  │  │  Triggerable.php
+│          │  │  │  
+│          │  │  ├─Parse
+│          │  │  │  └─Docwiki
+│          │  │  │          Block.php
+│          │  │  │          Bold.php
+│          │  │  │          Code.php
+│          │  │  │          Codepreview.php
+│          │  │  │          Compatible.php
+│          │  │  │          Delete.php
+│          │  │  │          Heading.php
+│          │  │  │          Horiz.php
+│          │  │  │          Italic.php
+│          │  │  │          Keyword.php
+│          │  │  │          List.php
+│          │  │  │          Nowiki.php
+│          │  │  │          Prefilter.php
+│          │  │  │          Qrcode.php
+│          │  │  │          Slash.php
+│          │  │  │          Subscript.php
+│          │  │  │          Superscript.php
+│          │  │  │          Table.php
+│          │  │  │          Tabs.php
+│          │  │  │          Underline.php
+│          │  │  │          Url.php
+│          │  │  │          
+│          │  │  ├─Render
+│          │  │  │  └─Xhtml
+│          │  │  │          Block.php
+│          │  │  │          Bold.php
+│          │  │  │          Code.php
+│          │  │  │          Codepreview.php
+│          │  │  │          Delete.php
+│          │  │  │          Italic.php
+│          │  │  │          Keyword.php
+│          │  │  │          Nowiki.php
+│          │  │  │          Qrcode.php
+│          │  │  │          Slash.php
+│          │  │  │          Tabs.php
+│          │  │  │          Underline.php
+│          │  │  │          Url.php
+│          │  │  │          
+│          │  │  └─Template
+│          │  │          Doc.php
+│          │  │          
+│          │  └─Text
+│          │      │  Wiki.php
+│          │      │  
+│          │      └─Wiki
+│          │          │  Default.php
+│          │          │  Parse.php
+│          │          │  Render.php
+│          │          │  
+│          │          ├─Parse
+│          │          │  └─Default
+│          │          │          Anchor.php
+│          │          │          Blockquote.php
+│          │          │          Bold.php
+│          │          │          Break.php
+│          │          │          Center.php
+│          │          │          Code.php
+│          │          │          Colortext.php
+│          │          │          Deflist.php
+│          │          │          Delimiter.php
+│          │          │          Embed.php
+│          │          │          Emphasis.php
+│          │          │          Freelink.php
+│          │          │          Function.php
+│          │          │          Heading.php
+│          │          │          Horiz.php
+│          │          │          Html.php
+│          │          │          Image.php
+│          │          │          Include.php
+│          │          │          Interwiki.php
+│          │          │          Italic.php
+│          │          │          List.php
+│          │          │          Newline.php
+│          │          │          Paragraph.php
+│          │          │          Phplookup.php
+│          │          │          Prefilter.php
+│          │          │          Raw.php
+│          │          │          Revise.php
+│          │          │          Smiley.php
+│          │          │          Strong.php
+│          │          │          Subscript.php
+│          │          │          Superscript.php
+│          │          │          Table.php
+│          │          │          Tighten.php
+│          │          │          Toc.php
+│          │          │          Tt.php
+│          │          │          Underline.php
+│          │          │          Url.php
+│          │          │          Wikilink.php
+│          │          │          
+│          │          └─Render
+│          │              │  Latex.php
+│          │              │  Plain.php
+│          │              │  Xhtml.php
+│          │              │  
+│          │              ├─Latex
+│          │              │      Anchor.php
+│          │              │      Blockquote.php
+│          │              │      Bold.php
+│          │              │      Box.php
+│          │              │      Break.php
+│          │              │      Center.php
+│          │              │      Code.php
+│          │              │      Colortext.php
+│          │              │      Deflist.php
+│          │              │      Delimiter.php
+│          │              │      Embed.php
+│          │              │      Emphasis.php
+│          │              │      Font.php
+│          │              │      Freelink.php
+│          │              │      Function.php
+│          │              │      Heading.php
+│          │              │      Horiz.php
+│          │              │      Html.php
+│          │              │      Image.php
+│          │              │      Include.php
+│          │              │      Interwiki.php
+│          │              │      Italic.php
+│          │              │      List.php
+│          │              │      Newline.php
+│          │              │      Page.php
+│          │              │      Paragraph.php
+│          │              │      Phplookup.php
+│          │              │      Plugin.php
+│          │              │      Prefilter.php
+│          │              │      Preformatted.php
+│          │              │      Raw.php
+│          │              │      Revise.php
+│          │              │      Smiley.php
+│          │              │      Specialchar.php
+│          │              │      Strong.php
+│          │              │      Subscript.php
+│          │              │      Superscript.php
+│          │              │      Table.php
+│          │              │      Tighten.php
+│          │              │      Titlebar.php
+│          │              │      Toc.php
+│          │              │      Tt.php
+│          │              │      Underline.php
+│          │              │      Url.php
+│          │              │      Wikilink.php
+│          │              │      
+│          │              ├─Plain
+│          │              │      Anchor.php
+│          │              │      Blockquote.php
+│          │              │      Bold.php
+│          │              │      Box.php
+│          │              │      Break.php
+│          │              │      Center.php
+│          │              │      Code.php
+│          │              │      Colortext.php
+│          │              │      Deflist.php
+│          │              │      Delimiter.php
+│          │              │      Embed.php
+│          │              │      Emphasis.php
+│          │              │      Font.php
+│          │              │      Freelink.php
+│          │              │      Function.php
+│          │              │      Heading.php
+│          │              │      Horiz.php
+│          │              │      Html.php
+│          │              │      Image.php
+│          │              │      Include.php
+│          │              │      Interwiki.php
+│          │              │      Italic.php
+│          │              │      List.php
+│          │              │      Newline.php
+│          │              │      Page.php
+│          │              │      Paragraph.php
+│          │              │      Phplookup.php
+│          │              │      Plugin.php
+│          │              │      Prefilter.php
+│          │              │      Preformatted.php
+│          │              │      Raw.php
+│          │              │      Revise.php
+│          │              │      Smiley.php
+│          │              │      Specialchar.php
+│          │              │      Strong.php
+│          │              │      Subscript.php
+│          │              │      Superscript.php
+│          │              │      Table.php
+│          │              │      Tighten.php
+│          │              │      Titlebar.php
+│          │              │      Toc.php
+│          │              │      Tt.php
+│          │              │      Underline.php
+│          │              │      Url.php
+│          │              │      Wikilink.php
+│          │              │      
+│          │              └─Xhtml
+│          │                      Address.php
+│          │                      Anchor.php
+│          │                      Blockquote.php
+│          │                      Bold.php
+│          │                      Box.php
+│          │                      Break.php
+│          │                      Center.php
+│          │                      Code.php
+│          │                      Colortext.php
+│          │                      Deflist.php
+│          │                      Delimiter.php
+│          │                      Embed.php
+│          │                      Emphasis.php
+│          │                      Font.php
+│          │                      Freelink.php
+│          │                      Function.php
+│          │                      Heading.php
+│          │                      Horiz.php
+│          │                      Html.php
+│          │                      Image.php
+│          │                      Include.php
+│          │                      Interwiki.php
+│          │                      Italic.php
+│          │                      List.php
+│          │                      Newline.php
+│          │                      Page.php
+│          │                      Paragraph.php
+│          │                      Phplookup.php
+│          │                      Plugin.php
+│          │                      Prefilter.php
+│          │                      Preformatted.php
+│          │                      Raw.php
+│          │                      Revise.php
+│          │                      Smiley.php
+│          │                      Specialchar.php
+│          │                      Strong.php
+│          │                      Subscript.php
+│          │                      Superscript.php
+│          │                      Table.php
+│          │                      Tighten.php
+│          │                      Titlebar.php
+│          │                      Toc.php
+│          │                      Tt.php
+│          │                      Underline.php
+│          │                      Url.php
+│          │                      Wikilink.php
+│          │                      
+│          └─template
+│              │  doc.phtml
+│              │  index.phtml
+│              │  nav.phtml
+│              │  syntax.phtml
+│              │  
+│              ├─css
+│              │      blue.css
+│              │      codemirror.css
+│              │      dark.css
+│              │      orange.css
+│              │      purple.css
+│              │      style.css
+│              │      style.min.css
+│              │      
+│              ├─images
+│              │      collapse-white.png
+│              │      collapse.png
+│              │      expand-white.png
+│              │      expand.png
+│              │      gotop.png
+│              │      home.png
+│              │      list-arrow-white.png
+│              │      list-arrow.png
+│              │      text-large-white.png
+│              │      text-large.png
+│              │      text-small-white.png
+│              │      text-small.png
+│              │      thum-dark.png
+│              │      thum-hover.png
+│              │      thum.png
+│              │      
+│              └─js
+│                      depencies.min.js
+│                      doc.js
+│                      
+└─test
+    │  index.php
+    │  
+    ├─core
+    │      event.js
+    │      widget.js
+    │      
+    ├─extend
+    │  │  fix.js
+    │  │  highlight.js
+    │  │  imglazyload.js
+    │  │  iscroll.js
+    │  │  offset.js
+    │  │  parseTpl.js
+    │  │  position.js
+    │  │  throttle.js
+    │  │  
+    │  └─imglazyload
+    │          1.jpg
+    │          10.jpg
+    │          11.jpg
+    │          12.jpg
+    │          13.jpg
+    │          14.jpg
+    │          15.jpg
+    │          16.jpg
+    │          17.jpg
+    │          2.jpg
+    │          3.jpg
+    │          4.jpg
+    │          5.jpg
+    │          6.jpg
+    │          7.jpg
+    │          8.jpg
+    │          9.jpg
+    │          
+    ├─fet
+    │  ├─bin
+    │  │      analysis.php
+    │  │      import.php
+    │  │      list.php
+    │  │      record.php
+    │  │      report.php
+    │  │      run.php
+    │  │      
+    │  ├─conf
+    │  │      build_run.xml
+    │  │      config.php
+    │  │      
+    │  ├─data
+    │  │      css.php
+    │  │      frame.html
+    │  │      frame.php
+    │  │      test.html
+    │  │      testReady.html
+    │  │      
+    │  ├─doc
+    │  │  │  web app 单测测试方案step by step文档.docx
+    │  │  │  web app 系统测试方案step by step文档.docx
+    │  │  │  
+    │  │  └─UserAction doc
+    │  │      │  files.html
+    │  │      │  index.html
+    │  │      │  
+    │  │      └─symbols
+    │  │              baidu.array.html
+    │  │              o.ie.html
+    │  │              ua.html
+    │  │              UserAction.browser.chrome.html
+    │  │              UserAction.browser.firefox.html
+    │  │              UserAction.browser.gecko.html
+    │  │              UserAction.browser.html
+    │  │              UserAction.browser.ie.html
+    │  │              UserAction.browser.maxthonIE.html
+    │  │              UserAction.browser.mobile.html
+    │  │              UserAction.browser.opera.html
+    │  │              UserAction.browser.safari.html
+    │  │              UserAction.browser.webkit.html
+    │  │              UserAction.html
+    │  │              _global_.html
+    │  │              
+    │  ├─lib
+    │  │  ├─css
+    │  │  │      bg_button_a.gif
+    │  │  │      bg_button_span.gif
+    │  │  │      demo.css
+    │  │  │      manual.css
+    │  │  │      qunit.css
+    │  │  │      tangramtest.css
+    │  │  │      testsuite.css
+    │  │  │      
+    │  │  ├─js
+    │  │  │      calcov.js
+    │  │  │      DestroyTest.js
+    │  │  │      ext_qunit.js
+    │  │  │      jquery-1.5.1.js
+    │  │  │      run.js
+    │  │  │      tangram.js
+    │  │  │      testrunner.js
+    │  │  │      TMock.js
+    │  │  │      TouchAction.js
+    │  │  │      UserAction.js
+    │  │  │      
+    │  │  ├─php
+    │  │  │      case.class.php
+    │  │  │      filehelper.php
+    │  │  │      geneHTML.php
+    │  │  │      
+    │  │  └─shell
+    │  │          add_label
+    │  │          start.sh
+    │  │          
+    │  └─tools
+    │          cov.bat
+    │          jscoverage.exe
+    │          modules.js
+    │          phantom-run.js
+    │          runall.bat
+    │          
+    ├─mindmap
+    │      core.zepto.imglazyload.xmind
+    │      GMU core.xmind
+    │      widget.add2desktop.xmind
+    │      widget.calendar.xmind
+    │      widget.carousel.xmind
+    │      widget.dialog.xmind
+    │      widget.dropmenu.xmind
+    │      widget.gotop.iscroll.xmind
+    │      widget.gotop.xmind
+    │      widget.navigator.xmind
+    │      widget.pageswipe.xmind
+    │      widget.panel.xmind
+    │      widget.popover.xmind
+    │      widget.progressbar.xmind
+    │      widget.quickdelete.xmind
+    │      widget.refresh.iscroll.xmind
+    │      widget.refresh.lite.xmind
+    │      widget.refresh.xmind
+    │      widget.refresh_ios5.xmind
+    │      widget.slider.xmind
+    │      widget.suggestion.xmind
+    │      widget.tabs.xmind
+    │      widget.toolbar.xmind
+    │      
+    └─widget
+        ├─add2desktop
+        │      add2desktop.js
+        │      
+        ├─button
+        │      $input.js
+        │      button.js
+        │      
+        ├─calendar
+        │      $picker.js
+        │      calendar.js
+        │      
+        ├─css
+        │  ├─add2desktop
+        │  │      icon.png
+        │  │      
+        │  ├─pageswipe
+        │  │      pageswipe_demo.css
+        │  │      
+        │  ├─slider
+        │  │      image1.png
+        │  │      image2.png
+        │  │      image3.png
+        │  │      image4.png
+        │  │      
+        │  └─suggestion
+        │          suggestion.test.css
+        │          
+        ├─data
+        │  │  refresh.php
+        │  │  suggestion-custom.php
+        │  │  suggestion-other.php
+        │  │  suggestion.php
+        │  │  
+        │  └─tabs
+        │          baike1.json
+        │          baike2.json
+        │          proxy.php
+        │          sample.html
+        │          sample.json
+        │          tabs.html
+        │          
+        ├─dialog
+        │      dialog.js
+        │      
+        ├─dropmenu
+        │      arrow.js
+        │      collision.js
+        │      dismissible.js
+        │      dropmenu.js
+        │      horizontal.js
+        │      placement.js
+        │      
+        ├─gotop
+        │      $iscroll.js
+        │      gotop.js
+        │      
+        ├─navigator
+        │      $scrollable.js
+        │      evenness.js
+        │      navigator.js
+        │      scrolltonext.js
+        │      
+        ├─panel
+        │      panel.js
+        │      
+        ├─popover
+        │      arrow.js
+        │      collision.js
+        │      dismissible.js
+        │      placement.js
+        │      popover.js
+        │      
+        ├─progressbar
+        │      progressbar.js
+        │      
+        ├─refresh
+        │      $iOS5.js
+        │      $iscroll.js
+        │      $lite.js
+        │      refresh.js
+        │      
+        ├─slider
+        │      $autoplay.js
+        │      $dynamic.js
+        │      $lazyloadimg.js
+        │      $multiview.js
+        │      $touch.js
+        │      arrow.js
+        │      dots.js
+        │      imgzoom.js
+        │      slider.js
+        │      
+        ├─suggestion
+        │      $iscroll.js
+        │      $posadapt.js
+        │      $quickdelete.js
+        │      compatdata.js
+        │      renderlist.js
+        │      sendrequest.js
+        │      suggestion.js
+        │      
+        ├─tabs
+        │      $ajax.js
+        │      $swipe.js
+        │      tabs.js
+        │      
+        └─toolbar
+                $position.js
+                toolbar.js
+                

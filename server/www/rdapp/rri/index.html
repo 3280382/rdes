@@ -1,0 +1,39 @@
+<div data-role="page">
+<style>
+.ui-li-static.ui-collapsible > .ui-collapsible-heading {
+    margin: 0;
+}
+.ui-li-static.ui-collapsible {
+    padding: 0;
+}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading > .ui-btn {
+    border-top-width: 0;
+}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading.ui-collapsible-heading-collapsed > .ui-btn,
+.ui-li-static.ui-collapsible > .ui-collapsible-content {
+    border-bottom-width: 0;
+}
+</style>
+	<div role="main" class="ui-content">
+		<ul data-role="listview" data-inset="false" data-shadow="false">
+			<li data-role="collapsible" data-iconpos="right" data-inset="false">
+				<h2>资源访问</h2>
+		    <ul data-role="listview" data-theme="b">
+					<li><a href="./es/index.html"><h2>包内访问远程-EventSource</h2></a></li>
+					<li><a href="./ws/index.html"><h2>包内访问远程-WebSocket</h2></a></li>
+					<li><a href="http://m.jd.com" target="_blank"><h2>包内访问远程-链接</h2></a></li>
+					<li><a onclick="getPkgFile('http://m.jd.com');" ><h2>包内访问远程-ajax</h2></a></li>	
+					<li><a href="../home/index.html"><h2>包内访问包内-链接</h2>	</a></li>
+					<li><a onclick="getPkgFile('../home/index.html');" ><h2>包内访问包内-ajax</h2></a></li>	
+				</ul>
+  		</li>
+			<li data-role="collapsible" data-iconpos="right" data-inset="false"><h2>SPA</h2>
+					<ul data-role="listview" data-theme="b">
+						<li><a  data-ajax="false" href="../ui/frameworks/spa/docs/index.html"><h2>SPA-zhaoda</h2></a></li>
+				</ul>
+			</li>
+			<li><a href="#"><h2>BIGPIPE</h2></a></li>
+			<li><a href="#"><h2>xTemplate</h2></a></li>
+		</ul>
+	</div><!-- /content -->
+</div><!-- /page -->

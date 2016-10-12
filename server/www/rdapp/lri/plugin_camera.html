@@ -1,0 +1,114 @@
+
+
+<div data-role="page">
+<div id="nh" data-role="header"  data-position="fixed" data-tap-toggle="false" data-theme="a" data-transition="none">
+	<h1>本地演示</h1>
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-btn-inline ui-mini  ui-btn-icon-left ui-icon-back">返回</a>	
+</div><!-- /header -->
+	<div role="main" class="ui-content">	
+	<form  id="pluginOptionsEle">
+		<ul data-role="listview"  data-divider-theme="a">	
+			<li data-role="controlgroup" data-mini="true">
+          <button  onclick="getCameraPicture();" type="submit" class="ui-btn ui-corner-all ui-btn-a ui-btn-inline">拍摄相片</button>
+			</li>
+			<li data-role="list-divider">quality:</li>
+	    <li data-role="controlgroup" data-mini="true"><input name="quality" id="quality" min="1" max="100" value="50" type="range"></li>
+	    <li data-role="list-divider">destinationType:</li>
+			<li data-role="controlgroup" data-type="horizontal" data-mini="true">        
+	        <input name="destinationType" id="destinationTypea" value="0" type="radio" />
+	        <label for="destinationTypea">DATA_URL</label>
+	        <input name="destinationType" id="destinationTypeb" value="1" type="radio" />
+	        <label for="destinationTypeb">FILE_URI</label>
+	        <input name="destinationType" id="destinationTypec" value="2" type="radio" />
+	        <label for="destinationTypec">NATIVE_URI</label>
+			</li>
+			<li data-role="list-divider">mediaType:</li>
+			<li data-role="controlgroup" data-type="horizontal" data-mini="true">       
+	        <input name="mediaType" id="mediaTypea" value="0" type="radio" />
+	        <label for="mediaTypea">PICTURE</label>
+	        <input name="mediaType" id="mediaTypeb" value="1" type="radio" />
+	        <label for="mediaTypeb">VIDEO</label>
+	        <input name="mediaType" id="mediaTypec" value="2" type="radio" />
+	        <label for="mediaTypec">ALLMEDIA</label>
+			</li>
+			<li data-role="list-divider">sourceType:</li>
+			<li data-role="controlgroup" data-type="veritical" data-mini="true">	        
+	        <input name="sourceType" id="sourceTypea" value="0" type="radio" />
+	        <label for="sourceTypea">PHOTOLIBRARY</label>
+	        <input name="sourceType" id="sourceTypeb" value="1" type="radio" />
+	        <label for="sourceTypeb">CAMERA</label>
+	        <input name="sourceType" id="sourceTypec" value="2" type="radio" />
+	        <label for="sourceTypec">SAVEDPHOTOALBUM</label>
+			</li>
+			<li data-role="controlgroup" data-mini="true">
+			    correctOrientation:
+    			<input data-role="flipswitch" name="correctOrientation" id="correctOrientation" type="checkbox">
+			</li>
+			<li data-role="controlgroup" data-mini="true">    			
+    			saveToPhotoAlbum:
+    			<input data-role="flipswitch" name="saveToPhotoAlbum" id="saveToPhotoAlbum" type="checkbox">
+			</li>
+		</ul>
+</form>
+	<img id="cameraImageEle" style="display:none;width:100%;"></img>
+	<div id="cameraReturnEle" style="display:none;width:100%;"></div>
+	<script>
+
+		var cameraOptionsDefault =
+		{ 
+			quality: 50,
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.CAMERA,
+			allowEdit: false,
+			encodingType: navigator.camera.EncodingType.JPEG,
+			//targetWidth: "",
+			//targetHeight: "",
+			mediaType: navigator.camera.MediaType.PICTURE,
+			correctOrientation: true,
+			saveToPhotoAlbum: true,
+			//popoverOptions: "", //IOS only
+			cameraDirection: navigator.camera.Direction.BACK
+    };
+    
+    var cameraOptions;
+    function getCameraPicture()
+    {
+			cameraOptions =
+			{ 
+				quality: parseInt($("#quality").val()),
+				destinationType: parseInt($("input[name='destinationType']:checked").val()),
+				sourceType: parseInt($("input[name='sourceType']:checked").val()),
+				allowEdit: false,
+				encodingType: navigator.camera.EncodingType.JPEG,
+				//targetWidth: "",
+				//targetHeight: "",
+				mediaType: parseInt($("input[name='mediaType']:checked").val()),
+				correctOrientation: $("input[name='correctOrientation']").prop("checked"),
+				saveToPhotoAlbum: $("input[name='saveToPhotoAlbum']").prop("checked"),
+				//popoverOptions: "", //IOS only
+				cameraDirection: navigator.camera.Direction.BACK
+	    };
+    	navigator.camera.getPicture(onCameraSuccess, onCameraFail, cameraOptions);
+    }    
+    function onCameraSuccess(imageURI) {
+    	var preStr = cameraOptions.destinationType == navigator.camera.DestinationType.DATA_URL ? "data:image/jpeg;base64," : "";
+	    var cameraImage = $("#cameraImageEle");
+	    var cameraReturn = $("#cameraReturnEle");
+	    cameraImage.attr("src",preStr+imageURI).show();	   
+	    cameraReturn.html(imageURI).show();	 
+		}
+		function onCameraFail(message) {
+		  alert("Failed because: " + message);
+		}
+		$(function(){
+				
+				$("input[name='destinationType'][value='"+cameraOptionsDefault.destinationType+"']").prop("checked",true);
+				$("input[name='sourceType'][value='"+cameraOptionsDefault.sourceType+"']").prop("checked",true);
+				$("input[name='mediaType'][value='"+cameraOptionsDefault.mediaType+"']").prop("checked",true);
+				$("input[name='correctOrientation']").prop("checked",cameraOptionsDefault.correctOrientation);				
+				$("input[name='saveToPhotoAlbum']").prop("checked",cameraOptionsDefault.saveToPhotoAlbum);
+				$("#quality").val(cameraOptionsDefault.quality);
+			});
+	</script>
+	</div><!-- /content -->
+</div><!-- /page -->

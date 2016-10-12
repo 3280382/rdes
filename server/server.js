@@ -15,14 +15,14 @@ var host = (process.env.VCAP_APP_HOST || 'localhost');
 app.use(express.static(path.join(__dirname, 'www')));       
 
 app.get('/', function(req, res){
-	res.send('<h1>Welcome Realtime Server£º</h1>');
+	res.send('<h1>Welcome Realtime Serverï¼š</h1>');
 });
 
 var wsConsole;
 
 app.get('/msg', function(req, res){
 	    		console.log(req.headers['user-agent']);
-        // 1. Éè¶¨Í·ĞÅÏ¢
+        // 1. è®¾å®šå¤´ä¿¡æ¯
         res.writeHead(200, {
             "Content-Type": "text/event-stream",
             "Cache-Control": "no-cache",
@@ -36,7 +36,7 @@ app.get('/msg', function(req, res){
 	      }
 	    	else
 	    	{
-	    		 // 2. Êä³öÄÚÈİ£¬±ØĞë "data:" ¿ªÍ· "\n\n" ½áÎ²£¨´ú±í½áÊø£©
+	    		 // 2. è¾“å‡ºå†…å®¹ï¼Œå¿…é¡» "data:" å¼€å¤´ "\n\n" ç»“å°¾ï¼ˆä»£è¡¨ç»“æŸï¼‰
 	        setInterval(function () {
 	            res.write("data: " + Date.now() + "\n\n");
 	            console.log(req.headers['user-agent']);
@@ -44,54 +44,54 @@ app.get('/msg', function(req, res){
 	    	}
 });
 
-//ÔÚÏßÓÃ»§
+//åœ¨çº¿ç”¨æˆ·
 var onlineUsers = {};
-//µ±Ç°ÔÚÏßÈËÊı
+//å½“å‰åœ¨çº¿äººæ•°
 var onlineCount = 0;
 
 socketio.on('connection', function(socket){
 	console.log('a user connected');
 	
-	//¼àÌıĞÂÓÃ»§¼ÓÈë
+	//ç›‘å¬æ–°ç”¨æˆ·åŠ å…¥
 	socket.on('login', function(obj){
-		//½«ĞÂ¼ÓÈëÓÃ»§µÄÎ¨Ò»±êÊ¶µ±×÷socketµÄÃû³Æ£¬ºóÃæÍË³öµÄÊ±ºò»áÓÃµ½
+		//å°†æ–°åŠ å…¥ç”¨æˆ·çš„å”¯ä¸€æ ‡è¯†å½“ä½œsocketçš„åç§°ï¼Œåé¢é€€å‡ºçš„æ—¶å€™ä¼šç”¨åˆ°
 		socket.name = obj.userid;
 		
-		//¼ì²éÔÚÏßÁĞ±í£¬Èç¹û²»ÔÚÀïÃæ¾Í¼ÓÈë
+		//æ£€æŸ¥åœ¨çº¿åˆ—è¡¨ï¼Œå¦‚æœä¸åœ¨é‡Œé¢å°±åŠ å…¥
 		if(!onlineUsers.hasOwnProperty(obj.userid)) {
 			onlineUsers[obj.userid] = obj.username;
-			//ÔÚÏßÈËÊı+1
+			//åœ¨çº¿äººæ•°+1
 			onlineCount++;
 		}
 		
-		//ÏòËùÓĞ¿Í»§¶Ë¹ã²¥ÓÃ»§¼ÓÈë
+		//å‘æ‰€æœ‰å®¢æˆ·ç«¯å¹¿æ’­ç”¨æˆ·åŠ å…¥
 		socketio.emit('login', {onlineUsers:onlineUsers, onlineCount:onlineCount, user:obj});
-		console.log(obj.username+'¼ÓÈëÁËÁÄÌìÊÒ');
+		console.log(obj.username+'åŠ å…¥äº†èŠå¤©å®¤');
 	});
 	
-	//¼àÌıÓÃ»§ÍË³ö
+	//ç›‘å¬ç”¨æˆ·é€€å‡º
 	socket.on('disconnect', function(){
-		//½«ÍË³öµÄÓÃ»§´ÓÔÚÏßÁĞ±íÖĞÉ¾³ı
+		//å°†é€€å‡ºçš„ç”¨æˆ·ä»åœ¨çº¿åˆ—è¡¨ä¸­åˆ é™¤
 		if(onlineUsers.hasOwnProperty(socket.name)) {
-			//ÍË³öÓÃ»§µÄĞÅÏ¢
+			//é€€å‡ºç”¨æˆ·çš„ä¿¡æ¯
 			var obj = {userid:socket.name, username:onlineUsers[socket.name]};
 			
-			//É¾³ı
+			//åˆ é™¤
 			delete onlineUsers[socket.name];
-			//ÔÚÏßÈËÊı-1
+			//åœ¨çº¿äººæ•°-1
 			onlineCount--;
 			
-			//ÏòËùÓĞ¿Í»§¶Ë¹ã²¥ÓÃ»§ÍË³ö
+			//å‘æ‰€æœ‰å®¢æˆ·ç«¯å¹¿æ’­ç”¨æˆ·é€€å‡º
 			socketio.emit('logout', {onlineUsers:onlineUsers, onlineCount:onlineCount, user:obj});
-			console.log(obj.username+'ÍË³öÁËÁÄÌìÊÒ');
+			console.log(obj.username+'é€€å‡ºäº†èŠå¤©å®¤');
 		}
 	});
 	
-	//¼àÌıÓÃ»§·¢²¼ÁÄÌìÄÚÈİ
+	//ç›‘å¬ç”¨æˆ·å‘å¸ƒèŠå¤©å†…å®¹
 	socket.on('message', function(obj){
-		//ÏòËùÓĞ¿Í»§¶Ë¹ã²¥·¢²¼µÄÏûÏ¢
+		//å‘æ‰€æœ‰å®¢æˆ·ç«¯å¹¿æ’­å‘å¸ƒçš„æ¶ˆæ¯
 		socketio.emit('message', obj);
-		console.log(obj.username+'Ëµ£º'+obj.content);
+		console.log(obj.username+'è¯´ï¼š'+obj.content);
 	});
   
 });
@@ -129,7 +129,7 @@ function validateToken(req,res){
   var oriArray = new Array();
   oriArray[0] = nonce;
   oriArray[1] = timestamp;
-  oriArray[2] = "13751880344";//ÕâÀïÊÇÄãÔÚÎ¢ĞÅ¿ª·¢ÕßÖĞĞÄÒ³ÃæÀïÌîµÄtoken£¬¶ø²»ÊÇ****
+  oriArray[2] = "13751880344";//è¿™é‡Œæ˜¯ä½ åœ¨å¾®ä¿¡å¼€å‘è€…ä¸­å¿ƒé¡µé¢é‡Œå¡«çš„tokenï¼Œè€Œä¸æ˜¯****
   oriArray.sort();
   var original = oriArray.join('');
   console.log("Original str : " + original);
@@ -154,6 +154,56 @@ app.post('/weixin/vt', function(req, res){
 	logReq(req);
 	res.end("ok");
 });
+
+var wechat = require('wechat');
+
+//app.use(express.query());//app.use(connect.query()); // Or
+app.use('/wechat', wechat('13751880344', function (req, res, next) {
+	// message is located in req.weixin
+
+	var message = req.weixin;
+	wsConsoleLog(JSON.stringify(message));
+	if (message.FromUserName === 'diaosi') {
+		// reply with text
+		res.reply('hehe');
+	} else if (message.FromUserName === 'text') {
+		// another way to reply with text
+		res.reply({
+			content: 'text object',
+			type: 'text'
+		});
+	} else if (message.FromUserName === 'hehe') {
+		// reply with music
+		res.reply({
+			type: "music",
+			content: {
+				title: "Just some music",
+				description: "I have nothing to lose",
+				musicUrl: "http://mp3.com/xx.mp3",
+				hqMusicUrl: "http://mp3.com/xx.mp3"
+			}
+		});
+	} else {
+		// reply with thumbnails posts
+		if (message.MsgType === 'text') {
+			res.reply({
+				content: 'you said:'+message.Content,
+				type: 'text'
+			});
+
+		}
+		else {
+			res.reply([
+				{
+					title: 'Come to fetch me',
+					description: 'or you want to play in another way ?',
+					picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
+					url: 'http://nodeapi.cloudfoundry.com/'
+				}
+			]);
+		}
+	}
+}));
 
 http.listen(port, function(){
 	console.log('listening on *:'+port);

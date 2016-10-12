@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>home</title>
+	<link rel="stylesheet" href="./css/jquery.mobile.flatui-1.4.5.css">
+	<script src="./cordova.js"></script>
+	<script src="./js/jquery.js"></script>
+	<script src="./js/jquery.mobile-1.4.5.js"></script>
+<script>
+		var rdapp = {rdesHost : "rdes.oschina.mopaasapp.com"};
+		$(function(){
+			$("[data-role='navbar']").navbar();
+			$("[data-role='header'], [data-role='footer']").toolbar();
+			
+			$("[data-role='popup']").popup().enhanceWithin();
+			
+			$("[data-role='panel']").panel();
+			
+			$.mobile.document.on( "click", "#optMoreInfo", function( evt ) {
+    	$( "#moreInfo" ).popup( "open", { x: evt.pageX-20, y: evt.pageY+20 } );
+    evt.preventDefault();
+});
+
+			$.mobile.path.pkgBaseUrl = $.mobile.path.documentBase.domain + $.mobile.path.documentBase.directory;
+			var panelInfoHtml = "package base url:" + $.mobile.path.pkgBaseUrl;
+			$("#panelInfo").html(panelInfoHtml);
+			
+			//$.mobile.eventLogger({deprecated:true,events:{page:true,showAlert:true,navigation:true}});
+			$.mobile.hashListeningEnabled = false;
+			$.mobile.allowCrossDomainPages = true;
+		if(window.cordova&&false)
+		{	
+			 	
+		    document.addEventListener("deviceready", onDeviceReady, false);
+		
+				function onDeviceReady() {
+				    document.addEventListener("backbutton", onBackKeyDown, false);
+				}
+				//首页导航不记录历史，直接退出
+				function onBackKeyDown(e) {
+					if($.mobile.navigate.history.stack.length<=1)
+					{
+						 e.preventDefault();
+						 navigator.app.exitApp();
+					}
+					else
+					{
+						$.mobile.back();
+					}
+				}
+		}		
+		
+					
+		});
+
+</script>	
+
+</head>
+
+<body>
+<div data-role="header"  data-position="fixed"  data-tap-toggle="false" data-transition="none" data-theme="a">
+	<h1>RDAPP</h1>
+    <a href="#myInfo" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-user">用户信息</a>	
+    <a href="#popupNested" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-bars ui-btn-icon-left ui-btn-b" data-transition="pop">更多</a>
+</div><!-- /header -->
+
+<div data-role="page">
+<div role="main" class="ui-content" style="text-align:center;">
+<p>Rapid development app framework</p>
+<br>		
+<div id="panelInfo"></div>	
+<p>
+		送人 <br>
+【唐】李咸用 <br>
+一轴烟花满口香，诸侯相见肯相忘。 <br>
+未闻珪璧为人弃，莫倦江山去路长。 <br>
+盈耳暮蝉催别骑，数杯浮蚁咽离肠。 <br>
+眼前多少难甘事，自古男儿当自强。 <br>
+<br>
+酬乐天咏老见示 <br>
+【唐】刘禹锡 <br>
+人谁不愿老，老去有谁怜。 <br>
+身瘦带频减，发稀冠自偏。 <br>
+废书缘惜眼，多炙为随年。 <br>
+经事还谙事，阅人如阅川。 <br>
+细思皆幸矣，下此便翛然。 <br>
+莫道桑榆晚，微霞尚满天。 <br>
+<br>
+乌江 <br>
+【宋】李清照 <br>
+生当为人杰， <br>
+死亦作鬼雄。 <br>
+至今思项羽， <br>
+不肯过江东。 <br>
+<br>
+画菊 <br>
+【宋】郑思肖 <br>
+花开不并百花丛，独立疏篱趣无穷。 <br>
+宁可枝头抱香死，何曾吹落北风中。 <br>
+<br>
+咏石灰 <br>
+【明】于谦 <br>
+千锤万击出深山，烈火焚烧若等闲。 <br>
+粉身碎骨全不顾，要留清白在人间。 <br>
+<br>
+咏竹 <br>
+【清】郑板桥 <br>
+咬定青山不放松，立根原在破岩中。 <br>
+千磨万击还坚劲，任尔东西南北风。
+</p>
+	</div><!-- /content -->
+</div><!-- /page -->
+
+<div data-role="footer" data-position="fixed"  data-tap-toggle="false" data-transition="none" data-theme="a" onclick="$.mobile.navigate.history.stack = [];">
+  <div data-role="navbar">
+		<ul>
+      <li><a href="home/index.html" data-prefetch="true" data-transition="none" data-direction="reverse" style="border:0px" data-role="button" data-icon="home" data-iconpos="top">首页</a></li>
+      <li><a href="lri/index.html" data-prefetch="true" data-transition="none" data-direction="reverse" style="border:0px" class="ui-btn ui-btn-icon-top ui-icon-location">本地</a></li>
+      <li><a href="ui/index.html" data-prefetch="true" data-transition="none" data-direction="reverse" style="border:0px" class="ui-btn ui-btn-icon-top ui-icon-bullets">界面</a></li>
+      <li><a href="rri/index.html" data-prefetch="true" data-transition="none" data-direction="reverse"  style="border:0px" class="ui-btn ui-btn-icon-top ui-icon-cloud">远程</a></li>
+      <li><a href="#" data-direction="reverse" style="border:0px" class="ui-btn ui-btn-icon-top ui-icon-grid">模块</a></li>
+      <!--<li><a href="#"   class="ui-btn ui-btn-icon-top ui-icon-bars">平台</a></li>-->
+  </ul>
+  </div>
+</div><!-- /footer -->
+	
+<div data-role="popup" id="popupNested" data-theme="none">
+    <div data-role="collapsibleset" data-theme="b" data-content-theme="a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
+        <div data-role="collapsible" data-inset="false">
+        <h2>界面风格</h2>
+            <ul data-role="listview">
+								<li><a data-ajax="false" href="./index.html">JQM</a></li>
+  							<li><a data-ajax="false" href="./indexbootstrap.html">JQM-bootstrap</a></li>
+  							<li><a data-ajax="false" href="./indexflatui.html">JQM-flatui</a></li>	
+            </ul>
+        </div><!-- /collapsible -->
+        <div data-role="collapsible" data-inset="false">
+        <h2>Pets</h2>
+            <ul data-role="listview">
+                <li><a href="#" data-rel="dialog">Cat</a></li>
+                <li><a href="#" data-rel="dialog">Dog</a></li>
+                <li><a href="#" data-rel="dialog">Iguana</a></li>
+                <li><a href="#" data-rel="dialog">Mouse</a></li>
+            </ul>
+        </div><!-- /collapsible -->
+        <div data-role="collapsible" data-inset="false">
+        <h2>Ocean Creatures</h2>
+            <ul data-role="listview">
+                <li><a href="#" data-rel="dialog">Fish</a></li>
+                <li><a href="#" data-rel="dialog">Octopus</a></li>
+                <li><a href="#" data-rel="dialog">Shark</a></li>
+                <li><a href="#" data-rel="dialog">Starfish</a></li>
+            </ul>
+        </div><!-- /collapsible -->
+        <div data-role="collapsible" data-inset="false">
+        <h2>Wild Animals</h2>
+            <ul data-role="listview">
+                <li><a href="#" data-rel="dialog">Lion</a></li>
+                <li><a href="#" data-rel="dialog">Monkey</a></li>
+                <li><a href="#" data-rel="dialog">Tiger</a></li>
+                <li><a href="#" data-rel="dialog">Zebra</a></li>
+            </ul>
+        </div><!-- /collapsible -->
+    </div><!-- /collapsible set -->
+</div><!-- /popup -->
+
+<div data-role="panel" id="myInfo" data-position="left" data-display="reveal" data-theme="a">
+
+<a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">关闭</a>
+</div><!-- /leftpanel1 -->
+</body>
+</html>

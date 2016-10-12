@@ -1,0 +1,57 @@
+{
+  "name": "spa.js",
+  "title": "SPA",
+  "version": "2.0.5",
+  "description": "A webapp framework for routing control and view transitions",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhaoda/spa.git"
+  },
+  "keywords": [
+    "spa",
+    "webapp",
+    "javascript",
+    "framework"
+  ],
+  "author": [
+    {
+      "name": "zhaoda",
+      "email": "zd6437@gmail.com",
+      "url": "http://zhaoda.net"
+    },
+    {
+      "name": "linchao",
+      "email": "lin-chao@foxmail.com",
+      "url": "http://linchao.info"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhaoda/spa/issues"
+  },
+  "homepage": "https://github.com/zhaoda/spa",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-text-replace": "^0.4.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-header": "^1.8.8",
+    "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-uglify": "^2.0.0"
+  },
+  "scripts": {
+    "test": "grunt",
+    "build": "gulp"
+  }
+}
