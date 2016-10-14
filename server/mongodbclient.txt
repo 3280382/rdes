@@ -1,0 +1,2 @@
+use rdes
+db.createCollection("account");
