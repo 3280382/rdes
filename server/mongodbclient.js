@@ -1,9 +1,8 @@
 var MongoClient = require('mongodb').MongoClient;
 var DB_CONN_STR = 'mongodb://localhost:27017/rdes2';	
 var insertData = function(db, callback) {  
-  //连接到表  
+ 
   var collection = db.collection('account2');
-  //插入数据
   var data = [{"name":'wilson001',"age":21},{"name":'wilson002',"age":22}];
   collection.insert(data, function(err, result) { 
     if(err)
@@ -15,9 +14,11 @@ var insertData = function(db, callback) {
   });
 }
 MongoClient.connect(DB_CONN_STR, function(err, db) {
-  console.log("连接成功！");
+  console.log("connect");
   insertData(db, function(result) {
     console.log(result);
+    var collection = db.collection('account2');
+    collection.find();
     db.close();
   });
 });

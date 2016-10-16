@@ -1,7 +1,7 @@
 {
-  "name": "realtime-server",
+  "name": "reds",
   "version": "0.0.1",
-  "description": "my first realtime server",
+  "description": "reds",
   "dependencies": {
     "compression": "^1.6.2",
     "express": "^4.14.0",
@@ -11,18 +11,19 @@
     "redis":"^2.6.2"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
-  "main": "server.js",
+  "main": "index.js",
   "devDependencies": {},
   "keywords": [
     "EventSource",
+    "Mongo",
     "WebSocket"
   ],
   "author": "duke chan",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "no"
+    "url": "https://www.github.com/3280382/reds"
   }
 }
