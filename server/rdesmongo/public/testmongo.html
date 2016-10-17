@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="./js/jquery-3.1.1.js"></script>
+    <script src="./js/mongodb-restful-client.js"></script>
+</head>
+<body>
+<textarea id="testScript" style="width:800px;height:120px;">
+    var client = new RESTFulMongoClient("tst");
+    var id = '1', object = {id:id,name:'namePost'}, objectPut = {id:id,name:'namePut'};
+    client.post(object);    client.get(id);
+    client.put(id,objectPut);    client.get(id);
+    client.delete(id);    client.get(id);
+</textarea>
+<input type="button" name="getMongo" value="getMongo" onclick="eval($('#testScript').val());" />
+<textarea id="testScriptJson" style="width:800px;height:120px;">
+    var client = new JsonrpcMongoClient("tstjson");
+    var id = '1', object = {id:id,name:'namePost'}, objectPut = {id:id,name:'namePut'};
+    client.jsoncall("post",id, object);    client.jsoncall("get",id);
+    client.jsoncall("put",id, objectPut);    client.jsoncall("get",id);
+    client.jsoncall("delete",id);    client.jsoncall("get",id);
+</textarea>
+<input type="button" name="getMongoJson" value="getMongoJson" onclick="eval($('#testScriptJson').val());" />
+<div id="msgDiv" style="width:600px;height:400px;"></div>
+
+</body>
+</html>

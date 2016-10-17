@@ -12,10 +12,6 @@ var app = express();
 var http = require('http').Server(app);
 var socketio = require('socket.io')(http);
 
-var httpmongo = require('./index.js');
-httpmongo.init({dbName:'rdes'});
-app.use('/httprdesmongo',httpmongo.createRESTFul());
-
 var port = (process.env.VCAP_APP_PORT || 3000);
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 
@@ -33,6 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+var httpmongo = require('./index.js');
+httpmongo.init({dbName:'rdestest'});
+app.use('/restfulmongo',httpmongo.createRESTFul());
+app.use('/jsonrpcmongo',httpmongo.createJsonrpc());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
