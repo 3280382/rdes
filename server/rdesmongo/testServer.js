@@ -29,8 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-var httpmongo = require('./index.js');
+var httpmongo = require('./httpmongo.js');
 httpmongo.init({dbName:'rdestest'});
+httpmongo.createSocketio('/wsmongo',http);
 app.use('/restfulmongo',httpmongo.createRESTFul());
 app.use('/jsonrpcmongo',httpmongo.createJsonrpc());
 

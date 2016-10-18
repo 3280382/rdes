@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<script src="./js/jquery-3.1.1.js"></script>
-    <script src="./js/mongodb-restful-client.js"></script>
+    <script src="./js/socket.io.js"></script>
+    <script src="./js/httpmongo.client.js"></script>
 </head>
 <body>
 <textarea id="testScript" style="width:800px;height:120px;">
@@ -22,7 +23,15 @@
     client.jsoncall("delete",id);    client.jsoncall("get",id);
 </textarea>
 <input type="button" name="getMongoJson" value="getMongoJson" onclick="eval($('#testScriptJson').val());" />
-<div id="msgDiv" style="width:600px;height:400px;"></div>
+<textarea id="testScriptWs" style="width:800px;height:120px;">
+    var client = new WsMongoClient("tstws");
+    var id = '1', object = {id:id,name:'namePost'}, objectPut = {id:id,name:'namePut'};
+    client.jsoncall("post",id, object);    client.jsoncall("get",id);
+    client.jsoncall("put",id, objectPut);    client.jsoncall("get",id);
+    client.jsoncall("delete",id);    client.jsoncall("get",id);
+</textarea>
+<input type="button" name="getMongoWs" value="getMongoWs" onclick="eval($('#testScriptWs').val());" />
+<div id="msgDiv" style="width:800px;height:400px;"></div>
 
 </body>
 </html>
